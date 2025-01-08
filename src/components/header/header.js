@@ -7,6 +7,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { userLogin, userLogOut } from '../store/reducers/authSlice'
 import LockOpenSharpIcon from '@mui/icons-material/LockOpenSharp';
 import { loginUser } from "../store/actions/actions.ts";
+import { persistor } from '../store/store.ts'
 const Header = () => {
 
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated)
@@ -25,6 +26,9 @@ const Header = () => {
   }
   const handleLogOut = () => {
     dispatch(userLogOut());
+    persistor.purge().then(() => {
+      console.log('Persisted state has been cleared.');
+    });
   }
   let menu = (
     <ul>
