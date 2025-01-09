@@ -4,7 +4,7 @@ import './login.css'
 import { loginUser } from '../../store/actions/actions.ts';
 import { useDispatch } from 'react-redux'
 import { useNavigate } from "react-router-dom";
-
+import userloginLogo from '../../images/user-login-logo.png'
 const LoginForm = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const dispatch = useDispatch()
@@ -19,8 +19,9 @@ const LoginForm = () => {
         <div className='login'>
             <div className='loginRow1'>
                 <div className='loginCol1'>
-                    <form onSubmit={handleSubmit(onSubmit)}>
-                        <div  >
+
+                    <form onSubmit={handleSubmit(onSubmit)} id="myForm" className="login-form"   >
+                        <div className="login-form-group">
                             <label>Email</label>
                             <input
                                 type="email"
@@ -28,7 +29,7 @@ const LoginForm = () => {
                             />
                             {errors.email && <p>{errors.email.message}</p>}
                         </div>
-                        <div>
+                        <div className="login-form-group">
                             <label>Password</label>
                             <input
                                 type="password"
@@ -36,11 +37,12 @@ const LoginForm = () => {
                             />
                             {errors.password && <p>{errors.password.message}</p>}
                         </div>
-                        <button type="submit">Login</button>
+                        <div className="login-form-group">
+                            <button type="submit">Login</button></div>
                     </form>
                 </div>
                 <div className='loginCol2'>
-                    image
+                    <img style={{ width: "40%" }} alt='Login' src={userloginLogo} />
                 </div>
             </div></div>
     );

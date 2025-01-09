@@ -18,6 +18,25 @@
   width: 30%;
   margin: 0 auto;
 }
+.login-form {
+  width: 80%;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.login-form-group {
+  margin-bottom: 15px;
+}
+
+.login-form-group label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.login-form-group input {
+  width: 100%;
+  padding: 10px 0px 10px 0px;
+}
 @media only screen and (max-width: 600px) {
   .loginRow1 {
     width: 100%;
@@ -30,5 +49,8 @@
   }
   .loginCol2 {
     width: 90%;
+  }
+  .login-form {
+    max-width: 100%;
   }
 }
