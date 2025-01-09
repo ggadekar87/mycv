@@ -8,7 +8,10 @@ import { userLogin, userLogOut } from '../store/reducers/authSlice'
 import LockOpenSharpIcon from '@mui/icons-material/LockOpenSharp';
 import { loginUser } from "../store/actions/actions.ts";
 import { persistor } from '../store/store.ts'
+import { useNavigate } from "react-router-dom";
+
 const Header = () => {
+  const navigate = useNavigate();
 
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated)
   const dispatch = useDispatch()
@@ -22,7 +25,7 @@ const Header = () => {
   }
 
   const handleLogin = () => {
-    dispatch(loginUser());
+    navigate("/login");
   }
   const handleLogOut = () => {
     dispatch(userLogOut());
