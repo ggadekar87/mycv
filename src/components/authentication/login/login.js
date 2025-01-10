@@ -5,21 +5,23 @@ import { loginUser } from '../../store/actions/actions.ts';
 import { useDispatch } from 'react-redux'
 import { useNavigate } from "react-router-dom";
 import userloginLogo from '../../images/user-login-logo.png'
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 const LoginForm = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const dispatch = useDispatch()
     const navigate = useNavigate();
 
     const onSubmit = data => {
-        dispatch(loginUser());
-        navigate("/");
+        // dispatch(loginUser());
+        // navigate("/");
+        alert("Invalid user")
     };
 
     return (
         <div className='login'>
             <div className='loginRow1'>
                 <div className='loginCol1'>
-
+                    <AccountCircleIcon className="avatar" ></AccountCircleIcon>
                     <form onSubmit={handleSubmit(onSubmit)} id="myForm" className="login-form"   >
                         <div className="login-form-group">
                             <label>Email</label>
